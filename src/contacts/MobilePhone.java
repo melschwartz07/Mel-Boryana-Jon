@@ -23,7 +23,7 @@ public class MobilePhone {
 
         String number = phone.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
         Files.write(
-                Paths.get("data", "contacts.txt"),
+                Paths.get("contacts", "contacts.txt"),
                 Arrays.asList(name + " " + " | " + number),
                 StandardOpenOption.APPEND
         );
@@ -33,7 +33,7 @@ public class MobilePhone {
 
     public static void viewContacts() {
         System.out.println("     Name    |    Phone number ");
-        Path ContactsPath = Paths.get("data", "contacts.txt");
+        Path ContactsPath = Paths.get("contacts", "contacts.txt");
         List<String> Personlist = null;
         try {
             Personlist = Files.readAllLines(ContactsPath);
@@ -50,7 +50,7 @@ public class MobilePhone {
         System.out.println("3. Enter contact Name: ");
         Scanner myScanner = new Scanner(System.in);
         String searchName = myScanner.nextLine();
-        Path ContactsPath = Paths.get("data", "contacts.txt");
+        Path ContactsPath = Paths.get("contacts", "contacts.txt");
         List<String> Personlist;
         try {
             Personlist = Files.readAllLines(ContactsPath);
@@ -69,7 +69,7 @@ public class MobilePhone {
         System.out.print(" Enter the contact name: ");
         Scanner myScanner = new Scanner(System.in);
         String searchName = myScanner.nextLine();
-        Path ContactsPath = Paths.get("data", "contacts.txt");
+        Path ContactsPath = Paths.get("contacts", "contacts.txt");
         List<String> Personlist;
         try {
             Personlist = Files.readAllLines(ContactsPath);
@@ -83,7 +83,7 @@ public class MobilePhone {
             for (String name : newList) {
                 System.out.println(name);
             }
-            Files.write(Paths.get("data", "contacts.txt"), newList);
+            Files.write(Paths.get("contacts", "contacts.txt"), newList);
         } catch (IOException e) {
             e.printStackTrace();
         }
